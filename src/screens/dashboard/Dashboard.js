@@ -45,6 +45,33 @@ export class Dashboard extends Component {
         image: require('../../assets/bike1.jpg'),
       },
     ],
+    Filtercard: [
+      {
+        text: '12.5$',
+        name: 'Maserdez v2',
+        image: require('../../assets/rent2.jpg'),
+      },
+      {
+        text: '12.5$',
+        name: 'Yahmaha v921',
+        image: require('../../assets/bike2.jpg'),
+      },
+      {
+        text: '12.5$',
+        name: 'Poarchse x9a',
+        image: require('../../assets/rent3.jpg'),
+      },
+      {
+        text: '12.5$',
+        name: 'Bmw m20',
+        image: require('../../assets/bgcover.jpg'),
+      },
+      {
+        text: '12.5$',
+        name: 'Honda Vm21',
+        image: require('../../assets/bike1.jpg'),
+      },
+    ],
     search: '',
   };
 
@@ -125,6 +152,18 @@ export class Dashboard extends Component {
     </View>
   );
 
+  // Searching Function
+  searching = (text) => {
+    const newData = this.state.card.filter((item) => {
+      const itemData = `${item.name.toUpperCase()}`;
+
+      const searchText = text.toUpperCase();
+
+      return itemData.indexOf(searchText) > -1;
+    });
+    this.setState({Filtercard: newData, search: text});
+  };
+
   render() {
     return (
       <View style={styles.Container}>
@@ -135,8 +174,8 @@ export class Dashboard extends Component {
           <View style={styles.bgcoverColor}>
             <Navheader leftic={'reorder-three-outline'} />
             <Appsearch
-              onChangeText={(search) => {
-                this.setState({search});
+              onChangeText={(text) => {
+                this.searching(text);
               }}
             />
           </View>
@@ -155,7 +194,7 @@ export class Dashboard extends Component {
             </>
           ) : (
             <AnimatedFlatList
-              data={this.state.card}
+              data={this.state.Filtercard}
               renderItem={({item}) => this.Flatitem(item)}
               animationType={AnimationType.Dive}
               animationDuration={1000}
