@@ -32,28 +32,28 @@ export class Dashboard extends Component {
   state = {
     card: [
       {
-        text: 'Maserdez',
+        text: '12.5$',
         name: 'Maserdez v2',
         image: require('../../assets/rent2.jpg'),
       },
       {
-        text: 'Yamha',
-        name: 'v921',
+        text: '12.5$',
+        name: 'Yahmaha v921',
         image: require('../../assets/bike2.jpg'),
       },
       {
-        text: 'Poarchse',
+        text: '12.5$',
         name: 'Poarchse x9a',
         image: require('../../assets/rent3.jpg'),
       },
       {
-        text: 'BMW',
+        text: '12.5$',
         name: 'Bmw m20',
         image: require('../../assets/bgcover.jpg'),
       },
       {
-        text: 'Honda',
-        name: 'Vm21',
+        text: '12.5$',
+        name: 'Honda Vm21',
         image: require('../../assets/bike1.jpg'),
       },
     ],
@@ -63,26 +63,42 @@ export class Dashboard extends Component {
     <Card
       style={{
         elevation: h('4%'),
-        height: h('30%'),
+        height: h('50%'),
         width: w('90%'),
         marginLeft: h('4%'),
         marginTop: h('2%'),
+        backgroundColor: 'red',
       }}>
-      <CardItem>
-        <Left>
-          <Thumbnail source={item.image} />
-          <Body>
-            <Text>{item.text}</Text>
-            <Text note>NativeBase</Text>
-          </Body>
-        </Left>
-      </CardItem>
       <CardItem cardBody>
-        <Image style={{height: h('30%'), flex: 1}} source={item.image} />
+        <Image style={{height: h('40%'), flex: 1}} source={item.image} />
       </CardItem>
-      <CardItem>
-        <Icon name="heart" style={{color: '#ED4A6A'}} />
-        <Text>{item.name}</Text>
+      <CardItem
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: h('5%'),
+        }}>
+        <Text style={{color: '#000', fontSize: h('3%'), fontWeight: 'bold'}}>
+          {item.name}
+        </Text>
+      </CardItem>
+      <CardItem
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: h('3%'),
+        }}>
+        <Text style={{color: '#0007', fontSize: h('2.5%')}}>
+          Rent:{item.text}/hour
+        </Text>
+      </CardItem>
+      <CardItem
+        style={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: h('9%'),
+        }}>
+        <Appbtn txt={'BOOK'} />
       </CardItem>
     </Card>
   );
@@ -101,11 +117,13 @@ export class Dashboard extends Component {
         </ImageBackground>
         {/* lower */}
         <View style={styles.lowerContainer}>
+          {/* decker */}
           <Text style={styles.txt}>Choose your car</Text>
           <DeckSwiper
             dataSource={this.state.card}
             renderItem={(item) => this.renderItemCard(item)}
           />
+          {/* end */}
         </View>
       </View>
     );
