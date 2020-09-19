@@ -24,7 +24,13 @@ export class OrderScreen extends Component {
   render() {
     return (
       <View style={styles.Container}>
-        <NavHeader2 text={'BOOK NOW'} leftic={'reorder-three-outline'} />
+        <NavHeader2
+          text={'BOOK NOW'}
+          leftic={'chevron-back-outline'}
+          onPress={() => {
+            this.props.navigation.goBack();
+          }}
+        />
         <View style={styles.containersView}>
           <View style={styles.dataContainer}>
             {/* rightContainer */}
