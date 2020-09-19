@@ -8,12 +8,18 @@ import {WelcomeScreen} from '../screens/welcome';
 import {Signin} from '../screens/signin';
 import {Signup} from '../screens/signup';
 import {Dashboard} from '../screens/dashboard';
+import {OrderScreen} from '../screens/order';
 
 export class StackNavigator extends Component {
   render() {
     return (
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="OrderScreen"
+            component={OrderScreen}
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="Dashboard"
             component={Dashboard}

@@ -268,7 +268,7 @@ const styles = StyleSheet.create({
     width: '30%',
   },
   name: {
-    color: 'black',
+    color: 'rgba(111, 74, 142, 1)',
     fontSize: h('3%'),
     fontWeight: 'bold',
   },
