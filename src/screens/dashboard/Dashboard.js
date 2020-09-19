@@ -1,14 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 import React, {Component} from 'react';
-import {
-  StyleSheet,
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import {StyleSheet, View, Text, ImageBackground, Image} from 'react-native';
 import {
   widthPercentageToDP as w,
   heightPercentageToDP as h,
@@ -52,6 +45,7 @@ export class Dashboard extends Component {
         image: require('../../assets/bike1.jpg'),
       },
     ],
+    search: '',
   };
 
   renderItemCard = (item) => (
@@ -140,24 +134,33 @@ export class Dashboard extends Component {
           style={styles.bgContainer}>
           <View style={styles.bgcoverColor}>
             <Navheader leftic={'reorder-three-outline'} />
-            <Appsearch />
+            <Appsearch
+              onChangeText={(search) => {
+                this.setState({search});
+              }}
+            />
           </View>
         </ImageBackground>
         {/* lower */}
         <View style={styles.lowerContainer}>
           {/* decker */}
-          {/* <Text style={styles.txt}>Choose your car</Text>
-          <DeckSwiper
-            dataSource={this.state.card}
-            renderItem={(item) => this.renderItemCard(item)}
-          /> */}
 
-          <AnimatedFlatList
-            data={this.state.card}
-            renderItem={({item}) => this.Flatitem(item)}
-            animationType={AnimationType.Dive}
-            animationDuration={1000}
-          />
+          {this.state.search === '' ? (
+            <>
+              <Text style={styles.txt}>Choose your car</Text>
+              <DeckSwiper
+                dataSource={this.state.card}
+                renderItem={(item) => this.renderItemCard(item)}
+              />
+            </>
+          ) : (
+            <AnimatedFlatList
+              data={this.state.card}
+              renderItem={({item}) => this.Flatitem(item)}
+              animationType={AnimationType.Dive}
+              animationDuration={1000}
+            />
+          )}
 
           {/* end */}
         </View>

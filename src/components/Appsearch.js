@@ -21,7 +21,11 @@ export class Appsearch extends Component {
             color="#0009"
           />
         </TouchableOpacity>
-        <TextInput style={styles.txtinput} placeholder={'Cars, Bike , Bus'} />
+        <TextInput
+          {...this.props}
+          style={styles.txtinput}
+          placeholder={'Cars, Bike , Bus'}
+        />
       </View>
     );
   }
