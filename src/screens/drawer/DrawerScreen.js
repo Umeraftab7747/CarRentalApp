@@ -105,8 +105,7 @@ export class DrawerScreen extends Component {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          style={[styles.btncontainer, {marginTop: h('26.5%')}]}>
+        <TouchableOpacity style={styles.btncontainer}>
           <View style={styles.btnright}>
             <Icon
               name={'close-circle-outline'}
@@ -162,15 +161,15 @@ const styles = StyleSheet.create({
     height: h('30%'),
   },
   btncontainer: {
-    // backgroundColor: 'grey',
+    backgroundColor: '#fff1',
     width: '100%',
-    height: h('8%'),
+    height: h('13%'),
 
     flexDirection: 'row',
-    borderBottomColor: '#0007',
-    borderBottomWidth: h('0.1%'),
-    borderTopColor: '#0007',
-    borderTopWidth: h('0.1%'),
+    // borderBottomColor: '#0007',
+    // borderBottomWidth: h('0.1%'),
+    // borderTopColor: '#0007',
+    // borderTopWidth: h('0.1%'),
   },
   btnright: {
     // backgroundColor: 'red',
