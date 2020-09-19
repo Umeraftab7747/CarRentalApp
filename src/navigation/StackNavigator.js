@@ -10,6 +10,7 @@ import {Signup} from '../screens/signup';
 import {Dashboard} from '../screens/dashboard';
 import {OrderScreen} from '../screens/order';
 import {DrawerNavigator} from './DrawerNavigator';
+import {Myrides} from '../screens/rides';
 
 export class StackNavigator extends Component {
   render() {
@@ -19,11 +20,6 @@ export class StackNavigator extends Component {
           <Stack.Screen
             name="DrawerNavigator"
             component={DrawerNavigator}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="Dashboard"
-            component={Dashboard}
             options={{headerShown: false}}
           />
           <Stack.Screen

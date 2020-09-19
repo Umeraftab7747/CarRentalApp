@@ -8,6 +8,7 @@ const Drawer = createDrawerNavigator();
 // screens
 import {Dashboard} from '../screens/dashboard';
 import {DrawerScreen} from '../screens/drawer';
+import {Myrides} from '../screens/rides';
 
 export class DrawerNavigator extends Component {
   render() {
@@ -15,6 +16,7 @@ export class DrawerNavigator extends Component {
       <Drawer.Navigator
         openByDefault={false}
         drawerContent={(props) => <DrawerScreen {...props} />}>
+        <Drawer.Screen name="Myrides" component={Myrides} />
         <Drawer.Screen name="Dashboard" component={Dashboard} />
       </Drawer.Navigator>
     );

@@ -32,7 +32,11 @@ export class DrawerScreen extends Component {
           </View>
         </ImageBackground>
         {/* 1 */}
-        <TouchableOpacity style={styles.btncontainer}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate('Dashboard');
+          }}
+          style={styles.btncontainer}>
           <View style={styles.btnright}>
             <Icon
               name={'home-outline'}
@@ -47,7 +51,11 @@ export class DrawerScreen extends Component {
         </TouchableOpacity>
 
         {/* 2 */}
-        <TouchableOpacity style={styles.btncontainer}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate('Myrides');
+          }}
+          style={styles.btncontainer}>
           <View style={styles.btnright}>
             <Icon
               name={'car-sport-outline'}
@@ -61,7 +69,11 @@ export class DrawerScreen extends Component {
           </View>
         </TouchableOpacity>
         {/* 3 */}
-        <TouchableOpacity style={styles.btncontainer}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate('Dashboard');
+          }}
+          style={styles.btncontainer}>
           <View style={styles.btnright}>
             <Icon
               name={'person-outline'}
@@ -75,7 +87,11 @@ export class DrawerScreen extends Component {
           </View>
         </TouchableOpacity>
         {/* 4 */}
-        <TouchableOpacity style={styles.btncontainer}>
+        <TouchableOpacity
+          onPress={() => {
+            this.props.navigation.navigate('Dashboard');
+          }}
+          style={styles.btncontainer}>
           <View style={styles.btnright}>
             <Icon
               name={'settings-outline'}

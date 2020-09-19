@@ -218,7 +218,7 @@ export class Dashboard extends Component {
 
           {this.state.search === '' ? (
             <>
-              <Text style={styles.txt}>Choose your car</Text>
+              <Text style={styles.txt}>Swipe the card left or right</Text>
               <DeckSwiper
                 dataSource={this.state.card}
                 renderItem={(item) => this.renderItemCard(item)}
@@ -269,7 +269,7 @@ const styles = StyleSheet.create({
   txt: {
     fontWeight: 'bold',
     fontSize: h('3%'),
-    marginLeft: h('20%'),
+    marginLeft: h('13%'),
     marginTop: h('1%'),
   },
   itemlistView: {
