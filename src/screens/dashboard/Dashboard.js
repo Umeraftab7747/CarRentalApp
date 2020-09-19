@@ -32,22 +32,22 @@ export class Dashboard extends Component {
         image: require('../../assets/rent2.jpg'),
       },
       {
-        text: '12.5$',
+        text: '22.5$',
         name: 'Yahmaha v921',
         image: require('../../assets/bike2.jpg'),
       },
       {
-        text: '12.5$',
+        text: '44$',
         name: 'Poarchse x9a',
         image: require('../../assets/rent3.jpg'),
       },
       {
-        text: '12.5$',
+        text: '32.9$',
         name: 'Bmw m20',
         image: require('../../assets/bgcover.jpg'),
       },
       {
-        text: '12.5$',
+        text: '74.2$',
         name: 'Honda Vm21',
         image: require('../../assets/bike1.jpg'),
       },
@@ -59,30 +59,31 @@ export class Dashboard extends Component {
         image: require('../../assets/rent2.jpg'),
       },
       {
-        text: '12.5$',
+        text: '22.5$',
         name: 'Yahmaha v921',
         image: require('../../assets/bike2.jpg'),
       },
       {
-        text: '12.5$',
+        text: '44$',
         name: 'Poarchse x9a',
         image: require('../../assets/rent3.jpg'),
       },
       {
-        text: '12.5$',
+        text: '32.9$',
         name: 'Bmw m20',
         image: require('../../assets/bgcover.jpg'),
       },
       {
-        text: '12.5$',
+        text: '74.2$',
         name: 'Honda Vm21',
         image: require('../../assets/bike1.jpg'),
       },
     ],
     search: '',
+    selectedData: [],
   };
 
-  renderItemCard = (item) => (
+  renderItemCard = (item, index) => (
     <Card
       style={{
         elevation: h('4%'),
@@ -93,7 +94,7 @@ export class Dashboard extends Component {
         backgroundColor: 'red',
       }}>
       <CardItem cardBody>
-        <Image style={{height: h('35%'), flex: 1}} source={item.image} />
+        <Image style={{height: h('30%'), flex: 1}} source={item.image} />
       </CardItem>
       <CardItem
         style={{
@@ -129,14 +130,33 @@ export class Dashboard extends Component {
           alignItems: 'center',
           height: h('9%'),
         }}>
-        <Appbtn txt={'BOOK'} />
+        <Appbtn
+          txt={'BOOK'}
+          onPress={() => {
+            // this.setState({selectedData: item});
+            this.props.navigation.navigate('OrderScreen', {
+              value: item,
+            });
+
+            // end
+          }}
+        />
       </CardItem>
     </Card>
   );
 
   // flatlist
   Flatitem = (item) => (
-    <TouchableOpacity style={styles.FlatlistContianer}>
+    <TouchableOpacity
+      onPress={() => {
+        // this.setState({selectedData: item});
+        this.props.navigation.navigate('OrderScreen', {
+          value: item,
+        });
+
+        // end
+      }}
+      style={styles.FlatlistContianer}>
       <View style={styles.itemlistView}>
         <View style={styles.left}>
           <Text style={styles.name}>{item.name}</Text>
@@ -205,6 +225,9 @@ export class Dashboard extends Component {
               renderItem={({item}) => this.Flatitem(item)}
               animationType={AnimationType.Dive}
               animationDuration={1000}
+              keyExtractor={(item) => {
+                item.name;
+              }}
             />
           )}
 

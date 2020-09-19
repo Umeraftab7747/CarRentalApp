@@ -16,15 +16,16 @@ export class StackNavigator extends Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="OrderScreen"
-            component={OrderScreen}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
             name="Dashboard"
             component={Dashboard}
             options={{headerShown: false}}
           />
+          <Stack.Screen
+            name="OrderScreen"
+            component={OrderScreen}
+            options={{headerShown: false}}
+          />
+
           <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}

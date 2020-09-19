@@ -13,10 +13,12 @@ import {Appbtn, NavHeader2} from '../../components';
 export class OrderScreen extends Component {
   state = {
     data: [],
+    model: false,
   };
 
   componentDidMount = () => {
-    // this.setState({data:})
+    const values = this.props.route.params.value;
+    this.setState({data: values});
   };
 
   render() {
@@ -28,8 +30,8 @@ export class OrderScreen extends Component {
             {/* rightContainer */}
             <View style={styles.right}>
               <View style={styles.upperRight}>
-                <Text style={styles.name}>Maserdiez</Text>
-                <Text style={styles.text}>22.9$</Text>
+                <Text style={styles.name}>{this.state.data.name}</Text>
+                <Text style={styles.text}>{this.state.data.text}</Text>
                 <Text style={styles.Star}>stars: 5</Text>
               </View>
               <View style={styles.lowerRight}>
@@ -93,9 +95,11 @@ export class OrderScreen extends Component {
             </View>
             {/* leftContainer */}
             <View style={styles.left}>
-              <Text style={styles.name}>
-                <Image source={this.state.data.Image} />
-              </Text>
+              <Image
+                source={this.state.data.image}
+                style={styles.images}
+                // resizeMethod={'center'}
+              />
             </View>
           </View>
           {/* lower half */}
@@ -105,12 +109,17 @@ export class OrderScreen extends Component {
                 <Text style={styles.txt1}>TOTAL CHARGES ARE</Text>
               </View>
               <View style={styles.box}>
-                <Text style={styles.txt2}>22.4$</Text>
+                <Text style={styles.txt2}>{this.state.data.text}</Text>
               </View>
             </View>
             {/* btn */}
             <View style={{marginTop: h('5%')}}>
-              <Appbtn txt={'ORDER NOW'} />
+              <Appbtn
+                txt={'ORDER NOW'}
+                onPress={() => {
+                  this.setState({model: true});
+                }}
+              />
             </View>
           </View>
         </View>
@@ -148,9 +157,9 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   left: {
-    backgroundColor: 'dodgerblue',
+    backgroundColor: '#0009',
     width: '50%',
-    height: '60%',
+    height: '100%',
   },
   text: {
     color: '#0006',
@@ -162,7 +171,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '30%',
     justifyContent: 'center',
-    paddingLeft: h('5%'),
+    paddingLeft: h('2%'),
   },
   lowerRight: {
     // backgroundColor: 'green',
@@ -213,5 +222,10 @@ const styles = StyleSheet.create({
   txt2: {
     color: 'rgba(111, 74, 142, 1)',
     fontSize: h('3%'),
+  },
+  images: {
+    resizeMode: 'contain',
+    width: '100%',
+    height: '100%',
   },
 });
