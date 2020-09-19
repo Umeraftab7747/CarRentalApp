@@ -1,7 +1,14 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, ImageBackground, Image} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  ImageBackground,
+  Image,
+  TouchableOpacity,
+} from 'react-native';
 import {
   widthPercentageToDP as w,
   heightPercentageToDP as h,
@@ -129,7 +136,7 @@ export class Dashboard extends Component {
 
   // flatlist
   Flatitem = (item) => (
-    <View style={styles.FlatlistContianer}>
+    <TouchableOpacity style={styles.FlatlistContianer}>
       <View style={styles.itemlistView}>
         <View style={styles.left}>
           <Text style={styles.name}>{item.name}</Text>
@@ -149,7 +156,7 @@ export class Dashboard extends Component {
           height: h('1.5%'),
         }}
       />
-    </View>
+    </TouchableOpacity>
   );
 
   // Searching Function
