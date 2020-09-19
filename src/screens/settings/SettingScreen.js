@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   flatlistConainer: {
     backgroundColor: 'white',
     width: '100%',
-    height: h('10%'),
+    height: h('11.5%'),
     // margin: h('1%'),
     marginTop: h('0%'),
     // justifyContent: 'center',
