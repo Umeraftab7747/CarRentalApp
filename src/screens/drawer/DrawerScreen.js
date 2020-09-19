@@ -89,7 +89,7 @@ export class DrawerScreen extends Component {
         {/* 4 */}
         <TouchableOpacity
           onPress={() => {
-            this.props.navigation.navigate('Dashboard');
+            this.props.navigation.navigate('SettingScreen');
           }}
           style={styles.btncontainer}>
           <View style={styles.btnright}>
