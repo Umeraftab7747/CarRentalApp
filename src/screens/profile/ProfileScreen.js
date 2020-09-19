@@ -1,7 +1,13 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image, ImageBackground} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  ImageBackground,
+} from 'react-native';
 import {
   widthPercentageToDP as w,
   heightPercentageToDP as h,
@@ -47,6 +53,80 @@ export class ProfileScreen extends Component {
             </View>
           </View>
           {/* containerEnd */}
+
+          <View style={styles.lowerContainerView}>
+            {/* container 1 */}
+            <View style={styles.flatContainer}>
+              <View style={styles.rightContainer}>
+                <Icon
+                  name={'call-outline'}
+                  size={35}
+                  type="ionicon"
+                  color="#0009"
+                />
+              </View>
+              <View style={styles.middleContainer}>
+                <Text style={styles.mtxt}>Mobile No</Text>
+                <Text style={styles.mtxt2}>03030303030</Text>
+              </View>
+              <TouchableOpacity style={styles.leftContainer}>
+                <Icon
+                  name={'cog-outline'}
+                  size={35}
+                  type="ionicon"
+                  color="#0009"
+                />
+              </TouchableOpacity>
+            </View>
+            {/* container 2 */}
+            <View style={styles.flatContainer}>
+              <View style={styles.rightContainer}>
+                <Icon
+                  name={'mail-outline'}
+                  size={35}
+                  type="ionicon"
+                  color="#0009"
+                />
+              </View>
+              <View style={styles.middleContainer}>
+                <Text style={styles.mtxt}>Email Address</Text>
+                <Text style={styles.mtxt2}>xyz@gmail.com</Text>
+              </View>
+              <TouchableOpacity style={styles.leftContainer}>
+                <Icon
+                  name={'cog-outline'}
+                  size={35}
+                  type="ionicon"
+                  color="#0009"
+                />
+              </TouchableOpacity>
+            </View>
+            {/* container3 */}
+            <View style={styles.flatContainer}>
+              <View style={styles.rightContainer}>
+                <Icon
+                  name={'home-outline'}
+                  size={35}
+                  type="ionicon"
+                  color="#0009"
+                />
+              </View>
+              <View style={styles.middleContainer}>
+                <Text style={styles.mtxt}>Home Address</Text>
+                <Text style={styles.mtxt2}>Lahore,gulberg House 3/2</Text>
+              </View>
+              <TouchableOpacity style={styles.leftContainer}>
+                <Icon
+                  name={'cog-outline'}
+                  size={35}
+                  type="ionicon"
+                  color="#0009"
+                />
+              </TouchableOpacity>
+            </View>
+            {/* endcontainers */}
+          </View>
+          {/* end */}
         </View>
       </View>
     );
@@ -104,7 +184,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   right: {
-    // backgroundColor: 'red',
+    // backgroundColor: 'gold',
     width: '50%',
     height: '100%',
     justifyContent: 'center',
@@ -126,5 +206,49 @@ const styles = StyleSheet.create({
     color: 'rgba(111, 74, 142, 0.8)',
     fontWeight: 'bold',
     fontSize: h('4%'),
+  },
+  lowerContainerView: {
+    // backgroundColor: 'red',
+    width: '100%',
+    height: h('50%'),
+    alignItems: 'center',
+    paddingTop: h('4%'),
+  },
+  flatContainer: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: h('12%'),
+    flexDirection: 'row',
+  },
+  rightContainer: {
+    // backgroundColor: 'yellow',
+    width: '15%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  middleContainer: {
+    // backgroundColor: 'green',
+    width: '70%',
+    height: '100%',
+    justifyContent: 'center',
+    paddingLeft: h('1%'),
+  },
+  leftContainer: {
+    // backgroundColor: 'dodgerblue',
+    width: '15%',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  mtxt: {
+    color: '#0007',
+    fontSize: h('2%'),
+    fontWeight: 'bold',
+  },
+  mtxt2: {
+    color: 'rgba(111, 74, 142, 0.8)',
+    fontSize: h('3%'),
+    fontWeight: 'bold',
   },
 });
