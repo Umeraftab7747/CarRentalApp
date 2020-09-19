@@ -199,7 +199,12 @@ export class Dashboard extends Component {
           source={require('../../assets/bgcover.jpg')}
           style={styles.bgContainer}>
           <View style={styles.bgcoverColor}>
-            <Navheader leftic={'reorder-three-outline'} />
+            <Navheader
+              leftic={'reorder-three-outline'}
+              onPress={() => {
+                this.props.navigation.openDrawer();
+              }}
+            />
             <Appsearch
               onChangeText={(text) => {
                 this.searching(text);
@@ -237,6 +242,7 @@ export class Dashboard extends Component {
     );
   }
 }
+
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
