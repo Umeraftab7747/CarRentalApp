@@ -19,14 +19,26 @@ export class SettingScreen extends Component {
         service: 'FingerPrint',
         icon: 'finger-print-outline',
         color: 'dodgerblue',
+        setting: 'Enable',
       },
       {
         service: 'Notifcation',
         icon: 'notifications-outline',
         color: 'dodgerblue',
+        setting: 'Disable',
       },
-      {service: 'Email', icon: 'mail-outline', color: 'dodgerblue'},
-      {service: 'Password', icon: 'lock-closed-outline', color: 'dodgerblue'},
+      {
+        service: 'Email',
+        icon: 'mail-outline',
+        color: 'dodgerblue',
+        setting: 'Enable',
+      },
+      {
+        service: 'Password',
+        icon: 'lock-closed-outline',
+        color: 'dodgerblue',
+        setting: '2fa',
+      },
       {service: 'FAQ', icon: 'information-outline', color: 'dodgerblue'},
       {
         service: 'Legal Aggrement',
@@ -48,7 +60,9 @@ export class SettingScreen extends Component {
       <View style={styles.middle}>
         <Text style={styles.Servicetxt}>{item.service}</Text>
       </View>
-      <View style={styles.left}></View>
+      <View style={styles.left}>
+        <Text style={styles.settings}>{item.setting}</Text>
+      </View>
     </TouchableOpacity>
   );
 
@@ -130,5 +144,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: h('2.5%'),
     color: '#0006',
+  },
+  settings: {
+    color: '#0004',
+    fontSize: h('2%'),
   },
 });
