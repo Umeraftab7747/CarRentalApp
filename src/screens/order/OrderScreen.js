@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 /* eslint-disable react/self-closing-comp */
 import React, {Component} from 'react';
-import {StyleSheet, View, Text, Image} from 'react-native';
+import {StyleSheet, View, Text, Image, Modal} from 'react-native';
 import {
   widthPercentageToDP as w,
   heightPercentageToDP as h,
@@ -9,6 +9,7 @@ import {
 import {Icon} from 'react-native-elements';
 // Components
 import {Appbtn, NavHeader2} from '../../components';
+import {set} from 'react-native-reanimated';
 
 export class OrderScreen extends Component {
   state = {
@@ -129,6 +130,35 @@ export class OrderScreen extends Component {
             </View>
           </View>
         </View>
+
+        {/* modal */}
+
+        <Modal
+          animationType="fade"
+          transparent={true}
+          visible={this.state.model}
+          onRequestClose={() => {
+            this.setState({modal: false});
+          }}>
+          <View style={styles.modalContainer}>
+            <View style={styles.modalContainerView}>
+              <Image
+                source={require('../../assets/tick.png')}
+                style={styles.ModalimgContainer}
+              />
+              <Text style={styles.modaltxt}>Your Order has Been Placed!</Text>
+              <View style={styles.modalbtn}>
+                <Appbtn
+                  txt={'Ok'}
+                  onPress={() => {
+                    this.setState({modal: false});
+                    this.props.navigation.navigate('DrawerNavigator');
+                  }}
+                />
+              </View>
+            </View>
+          </View>
+        </Modal>
       </View>
     );
   }
@@ -233,5 +263,33 @@ const styles = StyleSheet.create({
     resizeMode: 'contain',
     width: '100%',
     height: '100%',
+  },
+  modalContainer: {
+    backgroundColor: '#0008',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContainerView: {
+    backgroundColor: 'white',
+    width: '100%',
+    height: h('40%'),
+    alignItems: 'center',
+    borderRadius: h('5%'),
+  },
+  ModalimgContainer: {
+    width: '50%',
+    height: '50%',
+    resizeMode: 'contain',
+    marginTop: h('3%'),
+  },
+  modaltxt: {
+    color: 'rgba(111, 74, 142, 1)',
+    fontSize: h('3%'),
+    fontWeight: 'bold',
+    marginTop: h('3%'),
+  },
+  modalbtn: {
+    // marginTop: h('1%'),
   },
 });

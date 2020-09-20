@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import {Button, View} from 'react-native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-import {NavigationContainer} from '@react-navigation/native';
 
 const Drawer = createDrawerNavigator();
 
@@ -18,10 +16,10 @@ export class DrawerNavigator extends Component {
       <Drawer.Navigator
         openByDefault={false}
         drawerContent={(props) => <DrawerScreen {...props} />}>
+        <Drawer.Screen name="Dashboard" component={Dashboard} />
         <Drawer.Screen name="ProfileScreen" component={ProfileScreen} />
         <Drawer.Screen name="SettingScreen" component={SettingScreen} />
         <Drawer.Screen name="Myrides" component={Myrides} />
-        <Drawer.Screen name="Dashboard" component={Dashboard} />
       </Drawer.Navigator>
     );
   }

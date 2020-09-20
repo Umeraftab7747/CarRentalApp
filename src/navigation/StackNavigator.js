@@ -18,17 +18,6 @@ export class StackNavigator extends Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="DrawerNavigator"
-            component={DrawerNavigator}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
-            name="OrderScreen"
-            component={OrderScreen}
-            options={{headerShown: false}}
-          />
-
-          <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}
             options={{headerShown: false}}
@@ -41,6 +30,17 @@ export class StackNavigator extends Component {
           <Stack.Screen
             name="Signup"
             component={Signup}
+            options={{headerShown: false}}
+          />
+          <Stack.Screen
+            name="DrawerNavigator"
+            component={DrawerNavigator}
+            options={{headerShown: false}}
+          />
+
+          <Stack.Screen
+            name="OrderScreen"
+            component={OrderScreen}
             options={{headerShown: false}}
           />
         </Stack.Navigator>

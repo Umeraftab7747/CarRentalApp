@@ -12,66 +12,113 @@ import {
   widthPercentageToDP as w,
   heightPercentageToDP as h,
 } from 'react-native-responsive-screen';
+import {KeyboardAwareScrollView} from '@codler/react-native-keyboard-aware-scroll-view';
 
 // Components
 import {Appbtn, Apptxt, Navheader} from '../../components';
 
 export class Signup extends Component {
+  state = {
+    name: '',
+    email: '',
+    phone: '',
+    password: '',
+    ConfirmPassword: '',
+  };
+
+  validator = () => {
+    const {name, email, phone, password, ConfirmPassword} = this.state;
+    if (
+      name === '' ||
+      email === '' ||
+      phone === '' ||
+      password === '' ||
+      ConfirmPassword === ''
+    ) {
+      alert('all Fields are Required');
+    } else {
+    }
+  };
+
   render() {
     return (
-      <View style={styles.container}>
-        <ImageBackground
-          source={require('../../assets/rent.jpg')}
-          style={styles.bgcontainer}>
-          <View style={styles.bgimg}>
-            {/* top */}
-            <Navheader
-              leftic={'chevron-back-circle-outline'}
-              onPress={() => {
-                this.props.navigation.goBack();
-              }}
-            />
-            <View style={styles.containers}>
-              <Text style={styles.welcometxt}>Signup to</Text>
-              <Text style={styles.logo}>RENT & GO</Text>
-            </View>
-
-            {/* bottom */}
-            <View style={styles.bottomcontainers}>
-              {/* singin */}
-              <View style={styles.cover}>
-                <View style={styles.txtinputContainer}>
-                  <Apptxt
-                    iconname={'person-circle-outline'}
-                    placeholder={'Name'}
-                  />
-                  <Apptxt iconname={'mail-outline'} placeholder={'Email'} />
-                  <Apptxt
-                    iconname={'lock-closed-outline'}
-                    placeholder={'Password'}
-                  />
-                  <Apptxt
-                    iconname={'lock-closed-outline'}
-                    placeholder={'ConfirmPassword'}
-                  />
-                </View>
-                <View style={styles.lowerContainer}>
-                  <Appbtn txt={'Signup'} />
-                </View>
-              </View>
-              {/* Continue */}
-              <TouchableOpacity
+      <KeyboardAwareScrollView>
+        <View style={styles.container}>
+          <ImageBackground
+            source={require('../../assets/rent.jpg')}
+            style={styles.bgcontainer}>
+            <View style={styles.bgimg}>
+              {/* top */}
+              <Navheader
+                leftic={'chevron-back-circle-outline'}
                 onPress={() => {
-                  this.props.navigation.navigate('Signin');
+                  this.props.navigation.goBack();
                 }}
-                style={styles.txtContainer}>
-                <Text style={styles.txtColor}>Already a member! Sign-in</Text>
-              </TouchableOpacity>
+              />
+              <View style={styles.containers}>
+                <Text style={styles.welcometxt}>Signup to</Text>
+                <Text style={styles.logo}>RENT & GO</Text>
+              </View>
+
+              {/* bottom */}
+              <View style={styles.bottomcontainers}>
+                {/* singin */}
+                <View style={styles.cover}>
+                  <View style={styles.txtinputContainer}>
+                    <Apptxt
+                      iconname={'person-circle-outline'}
+                      placeholder={'Name'}
+                      onChangeText={(name) => {
+                        this.setState({name});
+                      }}
+                    />
+                    <Apptxt
+                      iconname={'mail-outline'}
+                      placeholder={'Email'}
+                      onChangeText={(email) => {
+                        this.setState({email});
+                      }}
+                    />
+                    <Apptxt
+                      iconname={'phone-potrait-outline'}
+                      placeholder={'Phone'}
+                      onChangeText={(phone) => {
+                        this.setState({phone});
+                      }}
+                    />
+                    <Apptxt
+                      iconname={'lock-closed-outline'}
+                      placeholder={'Password'}
+                      onChangeText={(password) => {
+                        this.setState({password});
+                      }}
+                    />
+                    <Apptxt
+                      iconname={'lock-closed-outline'}
+                      placeholder={'ConfirmPassword'}
+                      onChangeText={(ConfirmPassword) => {
+                        this.setState({ConfirmPassword});
+                      }}
+                    />
+                  </View>
+                  <View style={styles.lowerContainer}>
+                    <Appbtn txt={'Signup'} />
+                  </View>
+                </View>
+                {/* Continue */}
+                <TouchableOpacity
+                  onPress={() => {
+                    this.props.navigation.navigate('Signin');
+                  }}
+                  style={styles.txtContainer}>
+                  <Text style={styles.txtColor}>Already a member! Sign-in</Text>
+                </TouchableOpacity>
+              </View>
+              {/* end */}
             </View>
-            {/* end */}
-          </View>
-        </ImageBackground>
-      </View>
+          </ImageBackground>
+        </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
@@ -137,7 +184,7 @@ const styles = StyleSheet.create({
     height: '75%',
     // justifyContent: 'center',
     alignItems: 'center',
-    paddingTop: h('5%'),
+    paddingTop: h('2%'),
   },
   lowerContainer: {
     // backgroundColor: 'green',
@@ -145,6 +192,7 @@ const styles = StyleSheet.create({
     height: '40%',
     // justifyContent: 'center',
     alignItems: 'center',
+    marginTop: h('1%'),
   },
 
   txt: {
