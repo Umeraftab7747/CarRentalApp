@@ -6,7 +6,7 @@ const Stack = createStackNavigator();
 // screens
 import {WelcomeScreen} from '../screens/welcome';
 import {Signin} from '../screens/signin';
-import {Signup} from '../screens/signup';
+import {SplashScreen} from '../screens/splash';
 import {Dashboard} from '../screens/dashboard';
 import {OrderScreen} from '../screens/order';
 import {DrawerNavigator} from './DrawerNavigator';
@@ -17,6 +17,11 @@ export class StackNavigator extends Component {
     return (
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="SplashScreen"
+            component={SplashScreen}
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}

@@ -12,7 +12,7 @@ import {
   widthPercentageToDP as w,
   heightPercentageToDP as h,
 } from 'react-native-responsive-screen';
-// import {KeyboardAwareScrollView} from '@codler/react-native-keyboard-aware-scroll-view';
+import {KeyboardAwareScrollView} from '@codler/react-native-keyboard-aware-scroll-view';
 
 // Components
 import {Appbtn, Apptxt, Navheader} from '../../components';
@@ -20,65 +20,65 @@ import {Appbtn, Apptxt, Navheader} from '../../components';
 export class SignupApp extends Component {
   render() {
     return (
-      //   <KeyboardAwareScrollView>
-      <View style={styles.container}>
-        <ImageBackground
-          source={require('../../assets/rent.jpg')}
-          style={styles.bgcontainer}>
-          <View style={styles.bgimg}>
-            {/* top */}
-            <Navheader
-              leftic={'chevron-back-circle-outline'}
-              onPress={() => {
-                this.props.navigation.goBack();
-              }}
-            />
-            <View style={styles.containers}>
-              <Text style={styles.welcometxt}>Signup to</Text>
-              <Text style={styles.logo}>RENT & GO</Text>
-            </View>
-
-            {/* bottom */}
-            <View style={styles.bottomcontainers}>
-              {/* singin */}
-              <View style={styles.cover}>
-                <View style={styles.txtinputContainer}>
-                  <Apptxt
-                    iconname={'person-circle-outline'}
-                    placeholder={'Name'}
-                  />
-                  <Apptxt iconname={'mail-outline'} placeholder={'Email'} />
-                  <Apptxt
-                    iconname={'phone-potrait-outline'}
-                    placeholder={'Phone'}
-                  />
-                  <Apptxt
-                    iconname={'lock-closed-outline'}
-                    placeholder={'Password'}
-                  />
-                  <Apptxt
-                    iconname={'lock-closed-outline'}
-                    placeholder={'ConfirmPassword'}
-                  />
-                </View>
-                <View style={styles.lowerContainer}>
-                  <Appbtn txt={'Signup'} />
-                </View>
-              </View>
-              {/* Continue */}
-              <TouchableOpacity
+      <KeyboardAwareScrollView>
+        <View style={styles.container}>
+          <ImageBackground
+            source={require('../../assets/rent.jpg')}
+            style={styles.bgcontainer}>
+            <View style={styles.bgimg}>
+              {/* top */}
+              <Navheader
+                leftic={'chevron-back-circle-outline'}
                 onPress={() => {
-                  this.props.navigation.navigate('Signin');
+                  this.props.navigation.goBack();
                 }}
-                style={styles.txtContainer}>
-                <Text style={styles.txtColor}>Already a member! Sign-in</Text>
-              </TouchableOpacity>
+              />
+              <View style={styles.containers}>
+                <Text style={styles.welcometxt}>Signup to</Text>
+                <Text style={styles.logo}>RENT & GO</Text>
+              </View>
+
+              {/* bottom */}
+              <View style={styles.bottomcontainers}>
+                {/* singin */}
+                <View style={styles.cover}>
+                  <View style={styles.txtinputContainer}>
+                    <Apptxt
+                      iconname={'person-circle-outline'}
+                      placeholder={'Name'}
+                    />
+                    <Apptxt iconname={'mail-outline'} placeholder={'Email'} />
+                    <Apptxt
+                      iconname={'phone-potrait-outline'}
+                      placeholder={'Phone'}
+                    />
+                    <Apptxt
+                      iconname={'lock-closed-outline'}
+                      placeholder={'Password'}
+                    />
+                    <Apptxt
+                      iconname={'lock-closed-outline'}
+                      placeholder={'ConfirmPassword'}
+                    />
+                  </View>
+                  <View style={styles.lowerContainer}>
+                    <Appbtn txt={'Signup'} />
+                  </View>
+                </View>
+                {/* Continue */}
+                <TouchableOpacity
+                  onPress={() => {
+                    this.props.navigation.navigate('Signin');
+                  }}
+                  style={styles.txtContainer}>
+                  <Text style={styles.txtColor}>Already a member! Sign-in</Text>
+                </TouchableOpacity>
+              </View>
+              {/* end */}
             </View>
-            {/* end */}
-          </View>
-        </ImageBackground>
-      </View>
-      //   </KeyboardAwareScrollView>
+          </ImageBackground>
+        </View>
+      </KeyboardAwareScrollView>
     );
   }
 }
