@@ -66,7 +66,7 @@ export class Signin extends Component {
                       {/* Create account */}
                       <TouchableOpacity
                         onPress={() => {
-                          this.props.navigation.navigate('Signup');
+                          this.props.navigation.navigate('SignupApp');
                         }}
                         style={styles.txtbtn}>
                         <Text style={styles.txt}>Create Account</Text>

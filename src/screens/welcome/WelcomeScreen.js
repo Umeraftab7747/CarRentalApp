@@ -41,7 +41,7 @@ export class WelcomeScreen extends Component {
             <Appbtn
               txt={'Signup'}
               onPress={() => {
-                this.props.navigation.navigate('Signup');
+                this.props.navigation.navigate('SignupApp');
               }}
             />
             {/* WithoutSignup */}

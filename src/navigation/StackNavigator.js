@@ -10,13 +10,18 @@ import {Signup} from '../screens/signup';
 import {Dashboard} from '../screens/dashboard';
 import {OrderScreen} from '../screens/order';
 import {DrawerNavigator} from './DrawerNavigator';
-import {Myrides} from '../screens/rides';
+import {SignupApp} from '../screens/sigunp2';
 
 export class StackNavigator extends Component {
   render() {
     return (
       <NavigationContainer>
         <Stack.Navigator>
+          <Stack.Screen
+            name="SignupApp"
+            component={SignupApp}
+            options={{headerShown: false}}
+          />
           <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}
@@ -27,11 +32,11 @@ export class StackNavigator extends Component {
             component={Signin}
             options={{headerShown: false}}
           />
-          <Stack.Screen
+          {/* <Stack.Screen
             name="Signup"
             component={Signup}
             options={{headerShown: false}}
-          />
+          /> */}
           <Stack.Screen
             name="DrawerNavigator"
             component={DrawerNavigator}

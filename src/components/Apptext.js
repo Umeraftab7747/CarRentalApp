@@ -25,7 +25,6 @@ export class Apptxt extends Component {
         <TextInput
           style={styles.txtinput}
           placeholder={this.props.placeholder}
-          {...this.props}
         />
       </View>
     );
