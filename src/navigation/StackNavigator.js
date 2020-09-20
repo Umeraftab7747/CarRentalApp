@@ -18,15 +18,16 @@ export class StackNavigator extends Component {
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
-            name="SignupApp"
-            component={SignupApp}
-            options={{headerShown: false}}
-          />
-          <Stack.Screen
             name="WelcomeScreen"
             component={WelcomeScreen}
             options={{headerShown: false}}
           />
+          <Stack.Screen
+            name="SignupApp"
+            component={SignupApp}
+            options={{headerShown: false}}
+          />
+
           <Stack.Screen
             name="Signin"
             component={Signin}
